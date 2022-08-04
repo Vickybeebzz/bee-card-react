@@ -1,13 +1,53 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.crd-holder {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: auto;
+  border: 2px solid black;
+}
+
+.flip-card img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  margin: auto;
+  object-fit: contain;
+}
+
+.flip-card {
+  margin: auto;
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+}
+
+.flip-card-inner {
+  margin: auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.scorebox {
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
