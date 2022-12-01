@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "//vickybeebzz.github.io/bee-card-react/static/css/main.20297c02.css",
+    "main.js": "//vickybeebzz.github.io/bee-card-react/static/js/main.f1d223b5.js",
+    "static/media/card2.png": "//vickybeebzz.github.io/bee-card-react/static/media/card2.c45e035610f119f353db.png",
+    "static/media/card6.png": "//vickybeebzz.github.io/bee-card-react/static/media/card6.43dc467a2a7391e78ab3.png",
+    "static/media/card7.png": "//vickybeebzz.github.io/bee-card-react/static/media/card7.c71a3b1d349f0a66995f.png",
+    "static/media/card5.png": "//vickybeebzz.github.io/bee-card-react/static/media/card5.febfe45108055f5656d3.png",
+    "static/media/card8.png": "//vickybeebzz.github.io/bee-card-react/static/media/card8.2b88b2ec2257cfd7d41e.png",
+    "static/media/card1.png": "//vickybeebzz.github.io/bee-card-react/static/media/card1.efe3bf9fc4eaeb35fcc4.png",
+    "static/media/card4.png": "//vickybeebzz.github.io/bee-card-react/static/media/card4.563684d28789775d2b7b.png",
+    "static/media/card3.png": "//vickybeebzz.github.io/bee-card-react/static/media/card3.88431a5ccd8b5712f2d1.png",
+    "index.html": "//vickybeebzz.github.io/bee-card-react/index.html",
+    "main.20297c02.css.map": "//vickybeebzz.github.io/bee-card-react/static/css/main.20297c02.css.map",
+    "main.f1d223b5.js.map": "//vickybeebzz.github.io/bee-card-react/static/js/main.f1d223b5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.20297c02.css",
+    "static/js/main.f1d223b5.js"
+  ]
+}
