@@ -1,5 +1,6 @@
 {
   "name": "bee-card-react",
+  "homepage": "https://vickybeebzz.github.io/bee-card-react/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +16,9 @@
     "serve": "^14.1.2",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
+  "scripts": {   
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

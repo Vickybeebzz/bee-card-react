@@ -16,8 +16,7 @@ import { useState } from "react";
 let numbers = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7].sort(
   () => Math.random() - 0.5
 );
-let previousCard = -1;
-let previousId = -1;
+
 let pairs = 0;
 
 function Game() {
@@ -32,31 +31,19 @@ function Game() {
       <Board score={updateScore} />
       <div className="scorebox">Moves used: {score}</div>
       <div className="scorebox">Pairs: {pairs}</div>
-      <div className="scorebox">Previous: {previousCard}</div>
     </div>
   );
 }
 
 function Card(props) {
-  const id = props.id;
-  const value = props.value;
-  const backImage = props.backImage;
-  const frontImage = props.frontImage;
-  const [flip, setFlip] = useState(false);
-  const [currentImage, setCurrentImage] = useState(backImage);
-
-  const handleFlip = () => {
-    if (flip) return;
-    props.score();
-    setFlip(!flip);
-    setCurrentImage(flip ? backImage : frontImage);
-  };
+  const data = props.data;
+  const handleFlip = props.handleFlip;
 
   return (
     <div className="flip-card" onClick={handleFlip}>
       <div className={"flip-card-inner"}>
         <div className="card-image">
-          <img src={currentImage} alt=""></img>
+          <img src={data.image} alt=""></img>
         </div>
       </div>
     </div>
@@ -66,119 +53,48 @@ function Card(props) {
 function Board(props) {
   const updateScore = props.score;
 
+  let deck = [];
+
+  for (let i = 0; i < 16; i++) {
+    deck[i] = { id: i, value: numbers[i], flipped: false, image: cardback };
+  }
+
+  const handleFlip = () => {
+    deck.map((card) => {
+      if (card.id === props.id) {
+        return;
+      }
+    });
+  };
+
   return (
     <div className="crd-holder">
       <div>
-        {renderCard(numbers[0], updateScore, 0)}
-        {renderCard(numbers[1], updateScore, 1)}
-        {renderCard(numbers[2], updateScore, 2)}
-        {renderCard(numbers[3], updateScore, 3)}
+        <Card handleFlip={handleFlip} data={deck[0]} />
+        <Card handleFlip={handleFlip} data={deck[1]} />
+        <Card handleFlip={handleFlip} data={deck[2]} />
+        <Card handleFlip={handleFlip} data={deck[3]} />
       </div>
       <div>
-        {renderCard(numbers[4], updateScore, 4)}
-        {renderCard(numbers[5], updateScore, 5)}
-        {renderCard(numbers[6], updateScore, 6)}
-        {renderCard(numbers[7], updateScore, 7)}
+        <Card handleFlip={handleFlip} data={deck[4]} />
+        <Card handleFlip={handleFlip} data={deck[5]} />
+        <Card handleFlip={handleFlip} data={deck[6]} />
+        <Card handleFlip={handleFlip} data={deck[7]} />
       </div>
       <div>
-        {renderCard(numbers[8], updateScore, 8)}
-        {renderCard(numbers[9], updateScore, 9)}
-        {renderCard(numbers[10], updateScore, 10)}
-        {renderCard(numbers[11], updateScore, 11)}
+        <Card handleFlip={handleFlip} data={deck[8]} />
+        <Card handleFlip={handleFlip} data={deck[9]} />
+        <Card handleFlip={handleFlip} data={deck[10]} />
+        <Card handleFlip={handleFlip} data={deck[11]} />
       </div>
       <div>
-        {renderCard(numbers[12], updateScore, 12)}
-        {renderCard(numbers[13], updateScore, 13)}
-        {renderCard(numbers[14], updateScore, 14)}
-        {renderCard(numbers[15], updateScore, 15)}
+        <Card handleFlip={handleFlip} data={deck[12]} />
+        <Card handleFlip={handleFlip} data={deck[13]} />
+        <Card handleFlip={handleFlip} data={deck[14]} />
+        <Card handleFlip={handleFlip} data={deck[15]} />
       </div>
     </div>
   );
-}
-
-function renderCard(i, score, id) {
-  switch (i) {
-    case 0:
-      return (
-        <Card
-          value={i}
-          backImage={cardback}
-          frontImage={card1}
-          score={score}
-          id={id}
-        />
-      );
-    case 1:
-      return (
-        <Card
-          value={i}
-          backImage={cardback}
-          frontImage={card2}
-          score={score}
-          id={id}
-        />
-      );
-    case 2:
-      return (
-        <Card
-          value={i}
-          backImage={cardback}
-          frontImage={card3}
-          score={score}
-          id={id}
-        />
-      );
-    case 3:
-      return (
-        <Card
-          value={i}
-          backImage={cardback}
-          frontImage={card4}
-          score={score}
-          id={id}
-        />
-      );
-    case 4:
-      return (
-        <Card
-          value={i}
-          backImage={cardback}
-          frontImage={card5}
-          score={score}
-          id={id}
-        />
-      );
-    case 5:
-      return (
-        <Card
-          value={i}
-          backImage={cardback}
-          frontImage={card6}
-          score={score}
-          id={id}
-        />
-      );
-    case 6:
-      return (
-        <Card
-          value={i}
-          backImage={cardback}
-          frontImage={card7}
-          score={score}
-          id={id}
-        />
-      );
-    case 7:
-      return (
-        <Card
-          value={i}
-          backImage={cardback}
-          frontImage={card8}
-          score={score}
-          id={id}
-        />
-      );
-  }
 }
 
 export { Game };
