@@ -27,11 +27,6 @@ function Game() {
     setScore(score + 1);
   };
 
-  if (pairs === 7) {
-    setScore(0);
-    pairs = 0;
-  }
-
   return (
     <div>
       <Board score={updateScore} />
@@ -43,28 +38,18 @@ function Game() {
 }
 
 function Card(props) {
-  const [id, setId] = useState(props.id);
-  const [value, setValue] = useState(props.value);
-  const [backImage, setBackImage] = useState(props.backImage);
-  const [frontImage, setFrontImage] = useState(props.frontImage);
-  let [flip, setFlip] = useState("false");
-  let [currentImage, setCurrentImage] = useState(props.backImage);
+  const id = props.id;
+  const value = props.value;
+  const backImage = props.backImage;
+  const frontImage = props.frontImage;
+  const [flip, setFlip] = useState(false);
+  const [currentImage, setCurrentImage] = useState(backImage);
 
   const handleFlip = () => {
-    if (flip === true) {
-      setFlip(!flip);
-      setCurrentImage(flip ? frontImage : backImage);
-      props.score();
-      return;
-    }
+    if (flip) return;
     props.score();
     setFlip(!flip);
-    setCurrentImage(flip ? frontImage : backImage);
-    if (previousCard === value && previousId != id && previousId > -1) pairs++;
-    else {
-      previousCard = value;
-      previousId = id;
-    }
+    setCurrentImage(flip ? backImage : frontImage);
   };
 
   return (
